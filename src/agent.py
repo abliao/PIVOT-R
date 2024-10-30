@@ -191,6 +191,5 @@ class Agent(nn.Module):
                     batch[k] = self.batch[k].copy()
         self.logger.debug(f"new_instr {batch['new_instr']}")
         batch['instr'] = batch['new_instr']
-        print('instr',batch['instr'])
         action = self.act(batch)
         return action
