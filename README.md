@@ -22,6 +22,17 @@ pip install -r requirements.txt
 - Download [checkpoint](https://drive.google.com/file/d/12uDk9m4vxqkoZCd_7vNsz_NXhaRY49t7/view?usp=drive_link) and place it in "runs".
 - Download [test dataset](https://drive.google.com/file/d/15V82C2RCyfEfJKA_HYomf-YuTaiG-4gK/view?usp=sharing) and place it in "datasets". if need training, please download [train dataset](https://pan.baidu.com/s/1u5u7-gS2RjUBprMArAyBZA?pwd=7mo4 )
 ## Evaluation
+First, open the simulator
+```
+cd /path/to/simulator
+./HARIX_RDKSim.sh -graphicsadapter=0 -port=30007 -RenderOffScreen
+```
+open a new command line, and run
+```
+cd LLAVA
+python -m llava.serve.api --model-path liuhaotian/llava-v1.5-13b --temperature 0.0
+```
+Final, open a new command line
 ```
 python src/tester.py
 ```
