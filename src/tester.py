@@ -310,7 +310,7 @@ def Tester(agent, cfg, output_path):
             else:
                 event = data['event']
             
-            desk_id = data['deskInfo']['id']  
+            desk_id = random.choice(sim.desks.ID.values)
             sim.addDesk(desk_id=desk_id, h=98)
             can_list = list(SimServer.can_list)
 
