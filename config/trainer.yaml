@@ -4,7 +4,7 @@ use_origin_img: True
 
 image_process: 
   clip_arch: 'ViT-B-32' 
-  clip_path: clip_laion2b_s34b_b79k
+  clip_path: laion2b_s34b_b79k
 
 env: 
   num_actions: 7
@@ -34,7 +34,7 @@ datasets:
     dataAug: True
     image_process:
       clip_arch: 'ViT-B-32' 
-      clip_path: clip_laion2b_s34b_b79k
+      clip_path: laion2b_s34b_b79k
   test:
     data_path:
       - datasets/train_data
@@ -51,7 +51,7 @@ datasets:
     dataAug: False
     image_process:
       clip_arch: 'ViT-B-32' 
-      clip_path: clip_laion2b_s34b_b79k
+      clip_path: laion2b_s34b_b79k
   eval:
     instr_path: instructions/level
     levels: 
