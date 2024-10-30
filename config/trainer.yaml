@@ -1,0 +1,99 @@
+model: config/model/default.yaml
+use_origin_img: True
+
+
+image_process: 
+  clip_arch: 'ViT-B-32' 
+  clip_path: clip_laion2b_s34b_b79k
+
+env: 
+  num_actions: 7
+  control: 'ee'
+  bins: 50
+  client: localhost:30007
+  mode: 'grasping'
+  max_steps: 50
+
+datasets:
+  num_worker: 32
+  batch_size: 256
+  history_len: 1
+  train:
+    data_path:
+      - datasets/train_data
+    instructions_path: instructions/training_skills.pkl
+    history_len: 1
+    instructions_level: 
+      - 1
+      - 2
+      - 3
+      - 4
+    bin: 50
+    img_size: 224
+    data_size: null
+    dataAug: True
+    image_process:
+      clip_arch: 'ViT-B-32' 
+      clip_path: clip_laion2b_s34b_b79k
+  test:
+    data_path:
+      - datasets/train_data
+    instructions_path: instructions/training_skills.pkl
+    history_len: 1
+    instructions_level: 
+      - 1
+      - 2
+      - 3
+      - 4
+    bin: 50
+    img_size: 224
+    data_size: 512
+    dataAug: False
+    image_process:
+      clip_arch: 'ViT-B-32' 
+      clip_path: clip_laion2b_s34b_b79k
+  eval:
+    instr_path: instructions/level
+    levels: 
+      - 1
+      - 2
+      - 3
+      - 4
+    data_path:
+      - datasets/level1
+      - datasets/level2
+      - datasets/level3
+      - datasets/level4
+
+
+common:
+  epochs: 1000
+  device: cuda:0
+  do_checkpoint: True
+  seed: 0
+  sequence_length: 1 
+  resume: False
+
+initialization:
+  path_to_checkpoint: runs/last.pt
+
+training:
+  should: True
+
+  agent:
+    grad_acc_steps: 1
+    max_grad_norm: 10.0
+    weight_decay: 0.001
+    start_after_epochs: 0
+    learning_rate: 0.0001 
+    loss_weight:
+      - 1
+      - 1
+
+evaluation:
+  should: True
+  every: 1
+  agent:
+    grad_acc_steps: 1
+    max_grad_norm: 10.0
+    start_after_epochs: 0

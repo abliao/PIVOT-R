@@ -1,0 +1,12 @@
+outputs/
+output/
+__pycache__/
+checkpoints/
+datasets/
+runs/
+test/
+*.log
+*_images/
+*_videos/
+*.pyc
+*.out
