@@ -1,5 +1,5 @@
 clip_arch: 'ViT-B-32'
-clip_path: clip_laion2b_s34b_b79k
+clip_path: laion2b_s34b_b79k
 clip_visual_dim: 768
 clip_text_dim: 512
 state_num: 3
