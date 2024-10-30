@@ -28,7 +28,7 @@ python src/tester.py
 
 ## Training
 ```
-python src/main.py
+./train.sh
 ```
 
 ## Citation
