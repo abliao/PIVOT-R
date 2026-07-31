@@ -13,6 +13,7 @@ env:
   client: localhost:30007
   mode: 'grasping'
   max_steps: 50
+  max_contact_points: 32
 
 datasets:
   num_worker: 32
